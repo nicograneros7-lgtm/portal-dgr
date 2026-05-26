@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultar Deuda – DGR Municipal · Municipalidad de Salta</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --azul-noche:#002855;
+  --azul-medio:#003f8a;
+  --azul-claro:#1565c0;
+  --dorado:#c8973a;
+  --dorado-claro:#e8b96a;
+  --gris-bg:#f5f6f8;
+  --gris-card:#ffffff;
+  --gris-texto:#2d3748;
+  --gris-muted:#718096;
+  --gris-borde:#e2e8f0;
+  --verde-ok:#276749;
+  --verde-bg:#f0fff4;
+  --rojo-alerta:#c53030;
+  --rojo-bg:#fff5f5;
+  --amarillo-aviso:#744210;
+  --amarillo-bg:#fffbeb;
+}
+body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(--gris-texto);font-size:16px;line-height:1.6}
+
+/* HEADER */
+.header{background:var(--azul-noche);color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+.header-top{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo-area{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-escudo{width:42px;height:42px;background:linear-gradient(135deg,var(--dorado),var(--dorado-claro));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:var(--azul-noche);flex-shrink:0}
+.logo-text h1{font-size:15px;font-weight:700;color:#fff;line-height:1.2}
+.logo-text p{font-size:11px;color:#a0b4cc;letter-spacing:0.06em;text-transform:uppercase}
+.btn-login{background:var(--dorado);color:var(--azul-noche);border:none;padding:0.5rem 1.25rem;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+.nav-tabs{background:var(--azul-medio);border-top:1px solid rgba(255,255,255,0.08)}
+.nav-tabs-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;overflow-x:auto}
+.nav-tab{color:#a0b4cc;text-decoration:none;font-size:13px;padding:0.65rem 1.1rem;border-bottom:2px solid transparent;font-weight:500;white-space:nowrap;transition:all 0.2s}
+.nav-tab:hover{color:#fff}
+.nav-tab.active{color:#fff;border-bottom-color:var(--dorado)}
+
+/* HERO PÁGINA */
+.page-hero{background:linear-gradient(135deg,var(--azul-noche) 0%,var(--azul-medio) 100%);color:#fff;padding:2.5rem 1.5rem}
+.page-hero-inner{max-width:1200px;margin:0 auto}
+.breadcrumb{font-size:12px;color:#7f98b6;margin-bottom:0.75rem}
+.breadcrumb a{color:#a0b4cc;text-decoration:none}
+.breadcrumb a:hover{color:#fff}
+.page-title{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:0.5rem}
+.page-title span{color:var(--dorado-claro)}
+.page-sub{color:#a0b4cc;font-size:14px}
+
+/* CONTENIDO PRINCIPAL */
+.main{max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
+.layout{display:grid;grid-template-columns:1fr 340px;gap:2rem;align-items:start}
+
+/* BUSCADOR PRINCIPAL */
+.buscador-box{background:var(--gris-card);border:1px solid var(--gris-borde);border-radius:12px;padding:2rem;margin-bottom:1.5rem}
+.buscador-box h2{font-size:1.1rem;font-weight:700;color:var(--azul-noche);margin-bottom:0.3rem}
+.buscador-box p{font-size:13px;color:var(--gris-muted);margin-bottom:1.25rem}
+.tipo-tabs{display:flex;gap:0;margin-bottom:1.25rem;border:1px solid var(--gris-borde);border-radius:8px;overflow:hidden}
+.tipo-tab{flex:1;background:none;border:none;padding:0.6rem;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--gris-muted);transition:all 0.2s;border-right:1px solid var(--gris-borde)}
+.tipo-tab:last-child{border-right:none}
+.tipo-tab.active{background:var(--azul-noche);color:#fff}
+.tipo-tab:hover:not(.active){background:var(--gris-bg)}
+.campo-busqueda{display:flex;gap:8px}
+.input-principal{flex:1;border:1.5px solid var(--gris-borde);border-radius:8px;padding:0.75rem 1rem;font-size:15px;font-family:inherit;outline:none;color:var(--gris-texto);transition:border-color 0.2s}
+.input-principal:focus{border-color:var(--azul-claro)}
+.btn-consultar{background:var(--azul-noche);color:#fff;border:none;border-radius:8px;padding:0 1.75rem;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all 0.2s}
+.btn-consultar:hover{background:var(--azul-medio)}
+.input-hint{font-size:12px;color:var(--gris-muted);margin-top:0.5rem}
+
+/* RESULTADO */
+.resultado-box{display:none}
+.resultado-box.visible{display:block}
+.resultado-header{background:var(--azul-noche);color:#fff;border-radius:12px 12px 0 0;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.contrib-nombre{font-size:16px;font-weight:700}
+.contrib-cuit{font-size:12px;color:#7f98b6;margin-top:2px}
+.badge-activo{background:#276749;color:#b7f5d0;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+.tributos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--gris-borde);border-top:none;border-radius:0 0 12px 12px;overflow:hidden}
+.tributo-col{padding:1.25rem;border-right:1px solid var(--gris-borde);background:var(--gris-card)}
+.tributo-col:last-child{border-right:none}
+.tributo-nombre{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gris-muted);margin-bottom:0.5rem}
+.tributo-monto{font-size:1.5rem;font-weight:700;color:var(--gris-texto);margin-bottom:0.3rem}
+.tributo-monto.vencido{color:var(--rojo-alerta)}
+.tributo-monto.al-dia{color:var(--verde-ok)}
+.tributo-estado{font-size:12px;font-weight:600;margin-bottom:0.5rem}
+.tributo-estado.vencido{color:var(--rojo-alerta)}
+.tributo-estado.pendiente{color:#856404}
+.tributo-estado.ok{color:var(--verde-ok)}
+.tributo-detalle{font-size:11px;color:var(--gris-muted);line-height:1.5}
+.tributo-accion{display:block;width:100%;margin-top:0.75rem;background:var(--azul-noche);color:#fff;border:none;border-radius:6px;padding:0.5rem;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all 0.2s}
+.tributo-accion:hover{background:var(--azul-medio)}
+.tributo-accion.secundario{background:none;border:1.5px solid var(--gris-borde);color:var(--gris-texto)}
+.tributo-accion.secundario:hover{border-color:var(--azul-claro);color:var(--azul-claro)}
+
+/* TOTAL */
+.total-bar{background:var(--azul-noche);border-radius:10px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;margin-top:1rem}
+.total-label{color:#a0b4cc;font-size:14px}
+.total-monto{color:#fff;font-size:1.5rem;font-weight:700}
+.btn-pagar-todo{background:var(--dorado);color:var(--azul-noche);border:none;border-radius:8px;padding:0.75rem 2rem;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s}
+.btn-pagar-todo:hover{background:var(--dorado-claro)}
+
+/* HISTORIAL */
+.historial-box{background:var(--gris-card);border:1px solid var(--gris-borde);border-radius:12px;padding:1.5rem;margin-top:1.5rem;display:none}
+.historial-box.visible{display:block}
+.historial-title{font-size:15px;font-weight:700;color:var(--azul-noche);margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--gris-borde)}
+.historial-table{width:100%;border-collapse:collapse;font-size:13px}
+.historial-table th{text-align:left;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gris-muted);padding:0.5rem 0.75rem;border-bottom:2px solid var(--gris-borde)}
+.historial-table td{padding:0.75rem;border-bottom:1px solid var(--gris-borde);color:var(--gris-texto)}
+.historial-table tr:last-child td{border-bottom:none}
+.pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px}
+.pill.pagado{background:var(--verde-bg);color:var(--verde-ok)}
+.pill.pendiente{background:var(--amarillo-bg);color:var(--amarillo-aviso)}
+.pill.vencido{background:var(--rojo-bg);color:var(--rojo-alerta)}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1rem}
+.sidebar-card{background:var(--gris-card);border:1px solid var(--gris-borde);border-radius:12px;padding:1.25rem}
+.sidebar-title{font-size:14px;font-weight:700;color:var(--azul-noche);margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--gris-borde)}
+.venc-row{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid var(--gris-borde)}
+.venc-row:last-child{border-bottom:none}
+.venc-tributo{font-size:13px;font-weight:600;color:var(--gris-texto);display:block}
+.venc-cuota{font-size:11px;color:var(--gris-muted)}
+.venc-fecha-pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px}
+.venc-fecha-pill.urgente{background:var(--rojo-bg);color:var(--rojo-alerta)}
+.venc-fecha-pill.proximo{background:var(--amarillo-bg);color:var(--amarillo-aviso)}
+.venc-fecha-pill.ok{background:var(--verde-bg);color:var(--verde-ok)}
+.ayuda-item{display:flex;align-items:flex-start;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid var(--gris-borde)}
+.ayuda-item:last-child{border-bottom:none}
+.ayuda-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.ayuda-texto strong{display:block;font-size:13px;font-weight:700;color:var(--azul-noche)}
+.ayuda-texto span{font-size:12px;color:var(--gris-muted)}
+.info-card{background:var(--azul-noche);border-radius:12px;padding:1.25rem;color:#fff}
+.info-card p{font-size:13px;color:#a0b4cc;line-height:1.6;margin-bottom:1rem}
+.btn-contacto{display:block;width:100%;background:var(--dorado);color:var(--azul-noche);border:none;border-radius:6px;padding:0.65rem;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center}
+
+/* LOADING */
+.loading{display:none;text-align:center;padding:2rem;color:var(--gris-muted);font-size:14px}
+.loading.visible{display:block}
+.spinner{width:32px;height:32px;border:3px solid var(--gris-borde);border-top-color:var(--azul-claro);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 1rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* FOOTER */
+.footer{background:var(--azul-noche);color:#a0b4cc;padding:1.5rem;margin-top:3rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;font-size:12px}
+.footer-inner a{color:#7f98b6;text-decoration:none;margin-left:1rem}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .tributos-grid{grid-template-columns:1fr}
+  .total-bar{flex-direction:column;gap:1rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-top">
+    <a class="logo-area" href="index.html">
+      <div class="logo-escudo">DGR</div>
+      <div class="logo-text">
+        <h1>Dirección General de Rentas</h1>
+        <p>Municipalidad de Salta · Portal Tributario</p>
+      </div>
+    </a>
+    <button class="btn-login">🔐 Ingresar</button>
+  </div>
+  <div class="nav-tabs">
+    <div class="nav-tabs-inner">
+      <a href="index.html" class="nav-tab">Inicio</a>
+      <a href="#" class="nav-tab active">Consultar Deuda</a>
+      <a href="#" class="nav-tab">IRA – Automotor</a>
+      <a href="#" class="nav-tab">TPA – Inmobiliario</a>
+      <a href="#" class="nav-tab">TISSH – Act. Económica</a>
+      <a href="#" class="nav-tab">Planes de Pago</a>
+      <a href="#" class="nav-tab">Certificados</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="index.html">Inicio</a> › Consultar deuda</p>
+    <h1 class="page-title">Consulta de <span>deuda tributaria</span></h1>
+    <p class="page-sub">Ingresá tu CUIT para ver el estado de todos tus tributos municipales en un solo lugar</p>
+  </div>
+</div>
+
+<div class="main">
+  <div class="layout">
+
+    <!-- COLUMNA PRINCIPAL -->
+    <div>
+      <!-- BUSCADOR -->
+      <div class="buscador-box">
+        <h2>Buscar por contribuyente</h2>
+        <p>Podés consultar por CUIT, dominio de vehículo o nomenclatura catastral</p>
+        <div class="tipo-tabs">
+          <button class="tipo-tab active" onclick="switchTipo(this,'cuit')">Por CUIT / CUIL</button>
+          <button class="tipo-tab" onclick="switchTipo(this,'dominio')">Por Dominio (IRA)</button>
+          <button class="tipo-tab" onclick="switchTipo(this,'nomenclatura')">Por Nomenclatura (TPA)</button>
+        </div>
+        <div id="campo-cuit">
+          <div class="campo-busqueda">
+            <input class="input-principal" type="text" id="input-cuit" placeholder="Ej: 20-12345678-9" maxlength="13">
+            <button class="btn-consultar" onclick="consultar()">Consultar</button>
+          </div>
+          <p class="input-hint">Ingresá el CUIT sin guiones o con guiones — ambos formatos son válidos</p>
+        </div>
+        <div id="campo-dominio" style="display:none">
+          <div class="campo-busqueda">
+            <input class="input-principal" type="text" id="input-dominio" placeholder="Ej: AB 123 CD">
+            <button class="btn-consultar" onclick="consultarDominio()">Consultar</button>
+          </div>
+          <p class="input-hint">Ingresá el dominio tal como figura en la cédula verde del vehículo</p>
+        </div>
+        <div id="campo-nomenclatura" style="display:none">
+          <div class="campo-busqueda">
+            <input class="input-principal" type="text" id="input-nomenclatura" placeholder="Ej: 01-01-001-2345">
+            <button class="btn-consultar" onclick="consultarNomenclatura()">Consultar</button>
+          </div>
+          <p class="input-hint">La nomenclatura catastral figura en la boleta de TPA o en escritura</p>
+        </div>
+      </div>
+
+      <!-- LOADING -->
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        Consultando base de datos de la DGR...
+      </div>
+
+      <!-- RESULTADO -->
+      <div class="resultado-box" id="resultado">
+        <div class="resultado-header">
+          <div>
+            <p class="contrib-nombre" id="res-nombre">GARCÍA HERNÁNDEZ, Juan Carlos</p>
+            <p class="contrib-cuit" id="res-cuit">CUIT 20-28456789-3 · Contribuyente desde 2008</p>
+          </div>
+          <span class="badge-activo">● Activo</span>
+        </div>
+        <div class="tributos-grid">
+          <div class="tributo-col">
+            <p class="tributo-nombre">IRA – Automotor</p>
+            <p class="tributo-monto vencido">$87.450</p>
+            <p class="tributo-estado vencido">⚠ 2° Cuota vencida</p>
+            <p class="tributo-detalle">Dominio: AB 234 EF<br>Período: 2026<br>Vencimiento: 30/05/2026</p>
+            <button class="tributo-accion" onclick="alert('Demo: redirigiendo al pago de IRA...')">Pagar IRA →</button>
+            <button class="tributo-accion secundario" style="margin-top:4px" onclick="alert('Demo: descargando detalle de IRA...')">Ver detalle</button>
+          </div>
+          <div class="tributo-col">
+            <p class="tributo-nombre">TPA – Inmobiliario</p>
+            <p class="tributo-monto" style="color:var(--amarillo-aviso)">$42.300</p>
+            <p class="tributo-estado pendiente">⏳ Vence 15 Jun 2026</p>
+            <p class="tributo-detalle">Nomencl.: 01-03-012-0087<br>Período: Jun 2026<br>Con descuento hasta: 10/06</p>
+            <button class="tributo-accion" onclick="alert('Demo: redirigiendo al pago de TPA...')">Pagar TPA →</button>
+            <button class="tributo-accion secundario" style="margin-top:4px" onclick="alert('Demo: descargando detalle de TPA...')">Ver detalle</button>
+          </div>
+          <div class="tributo-col">
+            <p class="tributo-nombre">TISSH – Act. Económica</p>
+            <p class="tributo-monto al-dia">$0</p>
+            <p class="tributo-estado ok">✓ Al día</p>
+            <p class="tributo-detalle">Exp. N° 08765-DGR-26<br>Último pago: 20/04/2026<br>Próx. venc.: 20/06/2026</p>
+            <button class="tributo-accion secundario" onclick="alert('Demo: descargando libre de deuda TISSH...')">Libre de deuda</button>
+          </div>
+        </div>
+        <div class="total-bar">
+          <div>
+            <p class="total-label">Total a regularizar</p>
+            <p class="total-monto">$129.750</p>
+          </div>
+          <button class="btn-pagar-todo" onclick="alert('Demo: redirigiendo a pasarela de pago unificado...')">💳 Pagar todo junto</button>
+        </div>
+      </div>
+
+      <!-- HISTORIAL -->
+      <div class="historial-box" id="historial">
+        <p class="historial-title">Historial de pagos recientes</p>
+        <table class="historial-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Tributo</th>
+              <th>Concepto</th>
+              <th>Importe</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20/04/2026</td>
+              <td>TISSH</td>
+              <td>Anticipo Bim. Mar-Abr</td>
+              <td>$38.200</td>
+              <td><span class="pill pagado">Pagado</span></td>
+            </tr>
+            <tr>
+              <td>15/03/2026</td>
+              <td>TPA</td>
+              <td>Cuota Mar. 2026</td>
+              <td>$42.300</td>
+              <td><span class="pill pagado">Pagado</span></td>
+            </tr>
+            <tr>
+              <td>28/02/2026</td>
+              <td>IRA</td>
+              <td>1° Cuota 2026</td>
+              <td>$87.450</td>
+              <td><span class="pill pagado">Pagado</span></td>
+            </tr>
+            <tr>
+              <td>30/05/2026</td>
+              <td>IRA</td>
+              <td>2° Cuota 2026</td>
+              <td>$87.450</td>
+              <td><span class="pill vencido">Vencida</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <p class="sidebar-title">📅 Próximos vencimientos</p>
+        <div class="venc-row"><div><span class="venc-tributo">IRA – 2° Cuota</span><span class="venc-cuota">Automotor 2026</span></div><span class="venc-fecha-pill urgente">30 MAY</span></div>
+        <div class="venc-row"><div><span class="venc-tributo">TPA – Cuota Jun.</span><span class="venc-cuota">Inmobiliario</span></div><span class="venc-fecha-pill proximo">15 JUN</span></div>
+        <div class="venc-row"><div><span class="venc-tributo">TISSH – Anticipo</span><span class="venc-cuota">Bimestre May-Jun</span></div><span class="venc-fecha-pill proximo">20 JUN</span></div>
+        <div class="venc-row"><div><span class="venc-tributo">Hab. Comercial</span><span class="venc-cuota">Renovación anual</span></div><span class="venc-fecha-pill ok">30 JUN</span></div>
+      </div>
+
+      <div class="sidebar-card">
+        <p class="sidebar-title">❓ ¿Cómo consultar?</p>
+        <div class="ayuda-item">
+          <span class="ayuda-icon">🚗</span>
+          <div class="ayuda-texto">
+            <strong>IRA – Automotor</strong>
+            <span>Usá el CUIT del titular o el dominio del vehículo (ej: AB 123 CD)</span>
+          </div>
+        </div>
+        <div class="ayuda-item">
+          <span class="ayuda-icon">🏠</span>
+          <div class="ayuda-texto">
+            <strong>TPA – Inmobiliario</strong>
+            <span>Usá el CUIT del propietario o la nomenclatura catastral de la boleta</span>
+          </div>
+        </div>
+        <div class="ayuda-item">
+          <span class="ayuda-icon">🏪</span>
+          <div class="ayuda-texto">
+            <strong>TISSH – Act. Económica</strong>
+            <span>Solo por CUIT del contribuyente o titular del comercio</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <p class="sidebar-title" style="color:#fff;border-bottom-color:rgba(255,255,255,0.15)">📞 ¿Necesitás ayuda?</p>
+        <p>Si encontrás errores en tu deuda o necesitás aclarar algún concepto, podés comunicarte con la DGR.</p>
+        <button class="btn-contacto" onclick="alert('Demo: abriendo formulario de contacto...')">Contactar a la DGR</button>
+        <p style="font-size:11px;color:#7f98b6;margin-top:0.75rem;text-align:center">Av. España 655 · Lun. a Vie. 8:00–14:00 hs</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 Municipalidad de Salta · DGR Municipal</span>
+    <div>
+      <a href="index.html">Inicio</a>
+      <a href="#">Normativa</a>
+      <a href="#">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function switchTipo(btn, tipo){
+  document.querySelectorAll('.tipo-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('campo-cuit').style.display = tipo==='cuit' ? 'block' : 'none';
+  document.getElementById('campo-dominio').style.display = tipo==='dominio' ? 'block' : 'none';
+  document.getElementById('campo-nomenclatura').style.display = tipo==='nomenclatura' ? 'block' : 'none';
+  ocultarResultados();
+}
+
+function ocultarResultados(){
+  document.getElementById('resultado').classList.remove('visible');
+  document.getElementById('historial').classList.remove('visible');
+  document.getElementById('loading').classList.remove('visible');
+}
+
+function mostrarResultado(){
+  document.getElementById('loading').classList.remove('visible');
+  document.getElementById('resultado').classList.add('visible');
+  document.getElementById('historial').classList.add('visible');
+  document.getElementById('resultado').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function consultar(){
+  const v = document.getElementById('input-cuit').value.trim();
+  if(!v){ alert('Ingresá tu CUIT para consultar'); return; }
+  ocultarResultados();
+  document.getElementById('loading').classList.add('visible');
+  setTimeout(function(){
+    document.getElementById('res-nombre').textContent = 'GARCÍA HERNÁNDEZ, Juan Carlos';
+    document.getElementById('res-cuit').textContent = 'CUIT ' + v + ' · Contribuyente desde 2008';
+    mostrarResultado();
+  }, 1500);
+}
+
+function consultarDominio(){
+  const v = document.getElementById('input-dominio').value.trim();
+  if(!v){ alert('Ingresá el dominio del vehículo'); return; }
+  ocultarResultados();
+  document.getElementById('loading').classList.add('visible');
+  setTimeout(function(){
+    document.getElementById('res-nombre').textContent = 'GARCÍA HERNÁNDEZ, Juan Carlos';
+    document.getElementById('res-cuit').textContent = 'Dominio: ' + v.toUpperCase() + ' · CUIT 20-28456789-3';
+    mostrarResultado();
+  }, 1500);
+}
+
+function consultarNomenclatura(){
+  const v = document.getElementById('input-nomenclatura').value.trim();
+  if(!v){ alert('Ingresá la nomenclatura catastral'); return; }
+  ocultarResultados();
+  document.getElementById('loading').classList.add('visible');
+  setTimeout(function(){
+    document.getElementById('res-nombre').textContent = 'GARCÍA HERNÁNDEZ, Juan Carlos';
+    document.getElementById('res-cuit').textContent = 'Nomenclatura: ' + v + ' · CUIT 20-28456789-3';
+    mostrarResultado();
+  }, 1500);
+}
+
+document.getElementById('input-cuit').addEventListener('keydown', function(e){
+  if(e.key==='Enter') consultar();
+});
+document.getElementById('input-dominio').addEventListener('keydown', function(e){
+  if(e.key==='Enter') consultarDominio();
+});
+document.getElementById('input-nomenclatura').addEventListener('keydown', function(e){
+  if(e.key==='Enter') consultarNomenclatura();
+});
+</script>
+</body>
+</html>
