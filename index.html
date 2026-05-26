@@ -28,6 +28,7 @@
 }
 body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(--gris-texto);font-size:16px;line-height:1.6}
 
+/* HEADER */
 .header{background:var(--azul-noche);color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
 .header-top{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo-area{display:flex;align-items:center;gap:14px}
@@ -46,24 +47,27 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
 .nav-tab:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.3)}
 .nav-tab.active{color:#fff;border-bottom-color:var(--dorado)}
 
-.hero{background:linear-gradient(135deg,var(--azul-noche) 0%,var(--azul-medio) 60%,#1a4fa0 100%);color:#fff;padding:3rem 1.5rem}
-.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.hero-title{font-family:'Playfair Display',serif;font-size:2.4rem;line-height:1.2;margin-bottom:1rem}
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--azul-noche) 0%,var(--azul-medio) 60%,#1a4fa0 100%);color:#fff;padding:4rem 1.5rem}
+.hero-inner{max-width:680px;margin:0 auto;text-align:center}
+.hero-tag{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--dorado-claro);margin-bottom:0.75rem}
+.hero-title{font-family:'Playfair Display',serif;font-size:2.6rem;line-height:1.2;margin-bottom:1rem}
 .hero-title span{color:var(--dorado-claro)}
 .hero-sub{color:#a0b4cc;font-size:1rem;margin-bottom:2rem;line-height:1.7}
-.buscador-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:1.75rem}
-.buscador-title{font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dorado-claro);margin-bottom:1rem}
-.buscador-tabs{display:flex;gap:0;margin-bottom:1.25rem;background:rgba(0,0,0,0.2);border-radius:6px;padding:3px}
-.btab{flex:1;background:none;border:none;color:#a0b4cc;font-size:12px;font-weight:600;padding:0.45rem;border-radius:4px;cursor:pointer;transition:all 0.2s;font-family:inherit}
-.btab.active{background:var(--dorado);color:var(--azul-noche)}
-.search-row{display:flex;gap:8px}
-.search-input{flex:1;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:6px;padding:0.65rem 1rem;color:#fff;font-size:14px;font-family:inherit;outline:none}
+.hero-buscador{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:1.75rem;text-align:left}
+.hero-buscador-label{font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--dorado-claro);margin-bottom:1rem;display:block}
+.search-row{display:flex;gap:8px;margin-bottom:0.75rem}
+.search-input{flex:1;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:6px;padding:0.75rem 1rem;color:#fff;font-size:15px;font-family:inherit;outline:none}
 .search-input::placeholder{color:rgba(255,255,255,0.4)}
 .search-input:focus{border-color:var(--dorado);background:rgba(255,255,255,0.18)}
-.btn-buscar{background:var(--dorado);border:none;border-radius:6px;padding:0 1.25rem;color:var(--azul-noche);font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap;font-family:inherit}
+.btn-buscar{background:var(--dorado);border:none;border-radius:6px;padding:0 1.75rem;color:var(--azul-noche);font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap;font-family:inherit;transition:all 0.2s}
 .btn-buscar:hover{background:var(--dorado-claro)}
-.search-hint{font-size:12px;color:rgba(255,255,255,0.4);margin-top:0.6rem}
+.hero-hint{font-size:12px;color:rgba(255,255,255,0.4);text-align:center}
+.hero-hint a{color:var(--dorado-claro);text-decoration:none}
+.hero-hint a:hover{text-decoration:underline}
+.search-result{margin-top:0.75rem;font-size:13px;color:rgba(255,255,255,0.6);min-height:20px}
 
+/* VENCIMIENTOS BANNER */
 .vencimientos-banner{background:var(--amarillo-bg);border-top:3px solid #d69e2e;border-bottom:1px solid #f6e05e}
 .venc-inner{max-width:1200px;margin:0 auto;padding:0.75rem 1.5rem;display:flex;align-items:center;gap:1.5rem;overflow-x:auto}
 .venc-label{font-size:12px;font-weight:700;color:var(--amarillo-aviso);letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap}
@@ -72,6 +76,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
 .venc-text{font-size:13px;color:var(--amarillo-aviso)}
 .venc-sep{color:#d69e2e;font-size:16px}
 
+/* ACCESOS RÁPIDOS */
 .section{max-width:1200px;margin:0 auto;padding:2.5rem 1.5rem}
 .section-title{font-size:1.25rem;font-weight:700;color:var(--azul-noche);margin-bottom:0.3rem}
 .section-sub{font-size:14px;color:var(--gris-muted);margin-bottom:1.5rem}
@@ -83,37 +88,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
 .acceso-title{font-size:14px;font-weight:700;color:var(--azul-noche);margin-bottom:0.25rem}
 .acceso-desc{font-size:12px;color:var(--gris-muted);line-height:1.4}
 
-.mi-cuenta-section{background:var(--azul-noche);padding:3rem 1.5rem}
-.mi-cuenta-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:2.5rem;align-items:start}
-.cuenta-cta{color:#fff}
-.cuenta-cta h2{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:0.75rem}
-.cuenta-cta h2 span{color:var(--dorado-claro)}
-.cuenta-cta p{color:#a0b4cc;font-size:14px;margin-bottom:1.5rem;line-height:1.7}
-.btn-primary{background:var(--dorado);color:var(--azul-noche);border:none;padding:0.75rem 2rem;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s}
-.btn-primary:hover{background:var(--dorado-claro)}
-.btn-outline-white{background:none;border:1.5px solid rgba(255,255,255,0.4);color:#fff;padding:0.75rem 2rem;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;margin-left:0.75rem;transition:all 0.2s}
-.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,0.08)}
-.cuenta-panel{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:1.75rem}
-.panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.1)}
-.panel-contrib{color:#fff}
-.panel-contrib strong{display:block;font-size:15px;font-weight:700}
-.panel-contrib span{font-size:12px;color:#7f98b6}
-.badge-activo{background:#276749;color:#b7f5d0;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
-.deuda-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.25rem}
-.deuda-item{background:rgba(255,255,255,0.06);border-radius:8px;padding:1rem}
-.deuda-tipo{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#7f98b6;margin-bottom:0.4rem}
-.deuda-monto{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:0.2rem}
-.deuda-monto.alerta{color:#fc8181}
-.deuda-status{font-size:11px}
-.deuda-status.ok{color:#68d391}
-.deuda-status.pendiente{color:#fbd38d}
-.deuda-status.vencido{color:#fc8181}
-.panel-actions{display:flex;gap:0.75rem}
-.btn-pagar{background:var(--dorado);color:var(--azul-noche);border:none;border-radius:6px;padding:0.6rem 1.25rem;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;flex:1;transition:all 0.2s}
-.btn-pagar:hover{background:var(--dorado-claro)}
-.btn-ver{background:none;border:1.5px solid rgba(255,255,255,0.25);color:#fff;border-radius:6px;padding:0.6rem 1.25rem;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;flex:1;transition:all 0.2s}
-.btn-ver:hover{border-color:rgba(255,255,255,0.5)}
-
+/* NOTICIAS Y VENCIMIENTOS */
 .combo-grid{display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;max-width:1200px;margin:0 auto;padding:2.5rem 1.5rem}
 .noticias-list{display:flex;flex-direction:column;gap:1rem}
 .noticia-card{background:var(--gris-card);border:1px solid var(--gris-borde);border-radius:10px;padding:1.25rem;display:grid;grid-template-columns:72px 1fr;gap:1rem;align-items:start;transition:all 0.2s;cursor:pointer}
@@ -125,7 +100,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
 .noticia-titulo{font-size:15px;font-weight:700;color:var(--azul-noche);margin-bottom:0.3rem;line-height:1.3}
 .noticia-resumen{font-size:13px;color:var(--gris-muted);line-height:1.5}
 .vencimientos-card{background:var(--gris-card);border:1px solid var(--gris-borde);border-radius:10px;padding:1.5rem;height:fit-content}
-.venc-card-title{font-size:14px;font-weight:700;color:var(--azul-noche);margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:2px solid var(--gris-borde);display:flex;align-items:center;gap:0.5rem}
+.venc-card-title{font-size:14px;font-weight:700;color:var(--azul-noche);margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:2px solid var(--gris-borde)}
 .venc-list{display:flex;flex-direction:column;gap:0}
 .venc-row{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0;border-bottom:1px solid var(--gris-borde)}
 .venc-row:last-child{border-bottom:none}
@@ -136,6 +111,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
 .venc-fecha-pill.urgente{background:var(--rojo-bg);color:var(--rojo-alerta)}
 .venc-fecha-pill.ok{background:var(--verde-bg);color:var(--verde-ok)}
 
+/* TRÁMITES */
 .tramites-section{background:#fff;border-top:1px solid var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
 .tramites-inner{max-width:1200px;margin:0 auto;padding:2.5rem 1.5rem}
 .tramites-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
@@ -149,8 +125,9 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
 .tramite-title{font-size:14px;font-weight:700;color:var(--azul-noche);margin-bottom:0.3rem}
 .tramite-desc{font-size:12px;color:var(--gris-muted);margin-bottom:0.75rem;line-height:1.5}
 .tramite-meta{display:flex;gap:1rem}
-.tramite-plazo,.tramite-costo{font-size:11px;color:var(--gris-muted);display:flex;align-items:center;gap:4px}
+.tramite-plazo,.tramite-costo{font-size:11px;color:var(--gris-muted)}
 
+/* FOOTER */
 .footer{background:var(--azul-noche);color:#a0b4cc;padding:2.5rem 1.5rem 1.5rem}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
@@ -163,6 +140,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;display:flex;align-items:center;justify-content:space-between;font-size:12px}
 .footer-bottom a{color:#7f98b6;text-decoration:none}
 
+/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;align-items:center;justify-content:center}
 .modal-overlay.open{display:flex}
 .modal{background:#fff;border-radius:14px;padding:2rem;max-width:480px;width:90%;max-height:85vh;overflow-y:auto}
@@ -171,34 +149,34 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
 .modal-close{background:none;border:none;font-size:24px;cursor:pointer;color:var(--gris-muted);line-height:1}
 .form-group{margin-bottom:1rem}
 .form-group label{display:block;font-size:13px;font-weight:600;color:var(--gris-texto);margin-bottom:0.4rem}
-.form-group input,.form-group select{width:100%;border:1.5px solid var(--gris-borde);border-radius:8px;padding:0.65rem 1rem;font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;color:var(--gris-texto)}
-.form-group input:focus,.form-group select:focus{border-color:var(--azul-claro)}
+.form-group input{width:100%;border:1.5px solid var(--gris-borde);border-radius:8px;padding:0.65rem 1rem;font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;color:var(--gris-texto)}
+.form-group input:focus{border-color:var(--azul-claro)}
 .modal-actions{display:flex;gap:0.75rem;margin-top:1.5rem}
-.btn-modal-primary{flex:1;background:var(--azul-noche);color:#fff;border:none;border-radius:8px;padding:0.75rem;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s}
+.btn-modal-primary{flex:1;background:var(--azul-noche);color:#fff;border:none;border-radius:8px;padding:0.75rem;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
 .btn-modal-primary:hover{background:var(--azul-medio)}
 .btn-modal-secondary{flex:1;background:none;border:1.5px solid var(--gris-borde);color:var(--gris-texto);border-radius:8px;padding:0.75rem;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
 
+/* ALERT */
 .alert-banner{background:var(--rojo-bg);border-bottom:2px solid #fc8181}
 .alert-inner{max-width:1200px;margin:0 auto;padding:0.75rem 1.5rem;display:flex;align-items:center;gap:0.75rem;font-size:13px;color:var(--rojo-alerta);font-weight:600}
 
-.chatbot-bubble{position:fixed;bottom:2rem;right:2rem;background:var(--dorado);color:var(--azul-noche);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.25);z-index:150;transition:all 0.2s;border:none}
+/* CHATBOT */
+.chatbot-bubble{position:fixed;bottom:2rem;right:2rem;background:var(--dorado);color:var(--azul-noche);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.25);z-index:150;border:none;transition:all 0.2s}
 .chatbot-bubble:hover{transform:scale(1.1);background:var(--dorado-claro)}
-.chatbot-tooltip{position:fixed;bottom:5.5rem;right:2rem;background:var(--azul-noche);color:#fff;padding:0.5rem 1rem;border-radius:8px;font-size:13px;font-weight:600;white-space:nowrap;z-index:150;box-shadow:0 4px 12px rgba(0,0,0,0.25)}
 
 @media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr}
   .accesos-grid{grid-template-columns:repeat(2,1fr)}
-  .mi-cuenta-inner{grid-template-columns:1fr}
   .combo-grid{grid-template-columns:1fr}
   .tramites-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
-  .deuda-grid{grid-template-columns:1fr}
   .nav-links{display:none}
+  .hero-title{font-size:1.9rem}
 }
 </style>
 </head>
 <body>
 
+<!-- MODAL LOGIN -->
 <div class="modal-overlay" id="modal-login">
   <div class="modal">
     <div class="modal-header">
@@ -221,14 +199,16 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
   </div>
 </div>
 
+<!-- ALERTA -->
 <div class="alert-banner" id="alert-sys">
   <div class="alert-inner">
     <span style="font-size:18px">⚠</span>
-    <span>Recordatorio: El vencimiento para el pago del <strong>IRA – 2° Cuota 2026</strong> opera el <strong>30 de mayo</strong>. Pagá con descuento en cajeros Red Link o en esta plataforma.</span>
+    <span>Recordatorio: El vencimiento del <strong>IRA – 2° Cuota 2026</strong> opera el <strong>30 de mayo</strong>. Pagá con descuento en cajeros Red Link o en esta plataforma.</span>
     <button onclick="document.getElementById('alert-sys').style.display='none'" style="margin-left:auto;background:none;border:none;font-size:20px;cursor:pointer;color:var(--rojo-alerta);line-height:1">×</button>
   </div>
 </div>
 
+<!-- HEADER -->
 <header class="header">
   <div class="header-top">
     <div class="logo-area">
@@ -264,63 +244,25 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div>
-      <p style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--dorado-claro);margin-bottom:0.75rem">Ciudad de Salta · Argentina</p>
-      <h1 class="hero-title">Ventanilla Única<br><span>Tributaria Municipal</span></h1>
-      <p class="hero-sub">Ingresá tu CUIT y consultá al instante tu deuda de automotor e inmobiliario, sin registrarte. y gestioná todos tus trámites ante la Dirección General de Rentas desde un único lugar, sin filas, sin demoras. y gestioná todos tus trámites ante la Dirección General de Rentas desde un único lugar, sin filas, sin demoras.</p>
-      Acceder con usuario →<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:520px">
-<div style="display:flex;gap:8px">
-<input class="search-input" type="text" placeholder="Ingresá tu CUIT: 20-12345678-9" id="cuit-hero" style="font-size:15px;padding:0.85rem 1.1rem">
-<button class="btn-buscar" style="padding:0 1.75rem;font-size:14px" onclick="buscarCuit()">Ver deuda →</button>
-</div>
-<p style="font-size:12px;color:rgba(255,255,255,0.4)">¿Tenés usuario? <a href="#" onclick="document.getElementById('modal-login').classList.add('open')" style="color:var(--dorado-claro)">Acceder al portal completo →</a></p>
-        <button class="btn-primary" onclick="document.getElementById('modal-login').classList.add('open')">Ver mi deuda</button>
-        <button class="btn-outline-white">Acceder con usuario →</button>
+    <p class="hero-tag">Ciudad de Salta · Argentina</p>
+    <h1 class="hero-title">Ventanilla Única<br><span>Tributaria Municipal</span></h1>
+    <p class="hero-sub">Ingresá tu CUIT y consultá al instante tu deuda de automotor e inmobiliario, sin registrarte.</p>
+    <div class="hero-buscador">
+      <span class="hero-buscador-label">Consulta rápida de deuda</span>
+      <div class="search-row">
+        <input class="search-input" type="text" placeholder="Ingresá tu CUIT: 20-12345678-9" id="cuit-hero">
+        <button class="btn-buscar" onclick="buscarCuit()">Ver deuda →</button>
       </div>
+      <div class="search-result" id="search-result"></div>
     </div>
-    <div class="buscador-card">
-      <p class="buscador-title">Consulta rápida de deuda</p>
-      <div class="buscador-tabs">
-        <button class="btab active" onclick="switchTab(this,'ira')">🚗 IRA</button>
-        <button class="btab" onclick="switchTab(this,'tpa')">🏠 TPA</button>
-        <button class="btab" onclick="switchTab(this,'tissh')">🏪 TISSH</button>
-        <button class="btab" onclick="switchTab(this,'multa')">📋 Multas</button>
-      </div>
-      <div id="tab-ira">
-        <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:0.6rem">Dominio del vehículo</p>
-        <div class="search-row">
-          <input class="search-input" type="text" placeholder="Ej: AB 123 CD" id="buscar-ira">
-          <button class="btn-buscar" onclick="buscarDeuda()">Consultar</button>
-        </div>
-      </div>
-      <div id="tab-tpa" style="display:none">
-        <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:0.6rem">Nomenclatura catastral o padrón</p>
-        <div class="search-row">
-          <input class="search-input" type="text" placeholder="Ej: 01-01-001-2345">
-          <button class="btn-buscar">Consultar</button>
-        </div>
-      </div>
-      <div id="tab-tissh" style="display:none">
-        <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:0.6rem">CUIT del contribuyente</p>
-        <div class="search-row">
-          <input class="search-input" type="text" placeholder="Ej: 20-12345678-9">
-          <button class="btn-buscar">Consultar</button>
-        </div>
-      </div>
-      <div id="tab-multa" style="display:none">
-        <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:0.6rem">Número de acta o expediente</p>
-        <div class="search-row">
-          <input class="search-input" type="text" placeholder="Ej: ACTA-2025-003421">
-          <button class="btn-buscar">Consultar</button>
-        </div>
-      </div>
-      <p class="search-hint" id="search-result-hint">Ingresá el dato y consultá tu deuda sin registrarte</p>
-    </div>
+    <p class="hero-hint" style="margin-top:1rem">¿Tenés usuario? <a href="#" onclick="document.getElementById('modal-login').classList.add('open')">Acceder al portal completo →</a></p>
   </div>
 </section>
 
+<!-- VENCIMIENTOS -->
 <div class="vencimientos-banner">
   <div class="venc-inner">
     <span class="venc-label">📅 Próximos vencimientos</span>
@@ -334,67 +276,23 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
   </div>
 </div>
 
+<!-- ACCESOS RÁPIDOS -->
 <div class="section">
-  <p class="section-title">Accesos rápidos</p>
-  <p class="section-sub">Los trámites más frecuentes de la DGR Municipal</p>
+  <p class="section-title">¿Qué querés hacer hoy?</p>
+  <p class="section-sub">Trámites disponibles sin necesidad de registrarse</p>
   <div class="accesos-grid">
-    <a class="acceso-card" href="#" style="--color:#1565c0;--icon-bg:#e8f0fe"><div class="acceso-icon">💳</div><p class="acceso-title">Pagar en línea</p><p class="acceso-desc">Tarjetas, QR, transferencia bancaria</p></a>
-    <a class="acceso-card" href="#" style="--color:#276749;--icon-bg:#f0fff4"><div class="acceso-icon">📄</div><p class="acceso-title">Libre de Deuda</p><p class="acceso-desc">Certificado con QR de validación</p></a>
-    <a class="acceso-card" href="#" style="--color:#c8973a;--icon-bg:#fffbeb"><div class="acceso-icon">📅</div><p class="acceso-title">Planes de Pago</p><p class="acceso-desc">Regularizá tu deuda en cuotas</p></a>
-    <a class="acceso-card" href="#" style="--color:#744210;--icon-bg:#ffeaa7"><div class="acceso-icon">🏪</div><p class="acceso-title">Habilitación Comercial</p><p class="acceso-desc">Iniciá o renové tu habilitación</p></a>
-    <a class="acceso-card" href="#" style="--color:#553c9a;--icon-bg:#f3e8ff"><div class="acceso-icon">📋</div><p class="acceso-title">Mis Trámites</p><p class="acceso-desc">Estado de expedientes y solicitudes</p></a>
-    <a class="acceso-card" href="#" style="--color:#c53030;--icon-bg:#fff5f5"><div class="acceso-icon">🚗</div><p class="acceso-title">Denuncia de Venta</p><p class="acceso-desc">Arts. 122-124 CTM · Transferencia automotor</p></a>
-    <a class="acceso-card" href="#" style="--color:#2b6cb0;--icon-bg:#ebf8ff"><div class="acceso-icon">🏠</div><p class="acceso-title">Inmobiliario (TPA)</p><p class="acceso-desc">Consulta y pago por nomenclatura</p></a>
-    <a class="acceso-card" href="#" style="--color:#2d6a4f;--icon-bg:#d8f3dc"><div class="acceso-icon">🕐</div><p class="acceso-title">Turno Presencial</p><p class="acceso-desc">Agendá tu atención en Rentas</p></a>
+    <a class="acceso-card" href="#" style="--color:#1565c0;--icon-bg:#e8f0fe"><div class="acceso-icon">🔍</div><p class="acceso-title">Consultar deuda</p><p class="acceso-desc">IRA, TPA o TISSH por CUIT o dominio</p></a>
+    <a class="acceso-card" href="#" style="--color:#276749;--icon-bg:#f0fff4"><div class="acceso-icon">💳</div><p class="acceso-title">Pagar en línea</p><p class="acceso-desc">Tarjetas, QR o transferencia bancaria</p></a>
+    <a class="acceso-card" href="#" style="--color:#c8973a;--icon-bg:#fffbeb"><div class="acceso-icon">📄</div><p class="acceso-title">Libre de Deuda</p><p class="acceso-desc">Certificado con QR de validación</p></a>
+    <a class="acceso-card" href="#" style="--color:#744210;--icon-bg:#ffeaa7"><div class="acceso-icon">📅</div><p class="acceso-title">Planes de Pago</p><p class="acceso-desc">Regularizá tu deuda en cuotas</p></a>
+    <a class="acceso-card" href="#" style="--color:#553c9a;--icon-bg:#f3e8ff"><div class="acceso-icon">🏪</div><p class="acceso-title">Habilitación Comercial</p><p class="acceso-desc">Iniciá o renové tu habilitación</p></a>
+    <a class="acceso-card" href="#" style="--color:#c53030;--icon-bg:#fff5f5"><div class="acceso-icon">🚗</div><p class="acceso-title">Denuncia de Venta</p><p class="acceso-desc">Transferencia de automotor · Arts. 122-124 CTM</p></a>
+    <a class="acceso-card" href="#" style="--color:#2b6cb0;--icon-bg:#ebf8ff"><div class="acceso-icon">📋</div><p class="acceso-title">Mis Trámites</p><p class="acceso-desc">Estado de expedientes y solicitudes</p></a>
+    <a class="acceso-card" href="#" style="--color:#2d6a4f;--icon-bg:#d8f3dc"><div class="acceso-icon">🕐</div><p class="acceso-title">Turno Presencial</p><p class="acceso-desc">Agendá tu atención en la DGR</p></a>
   </div>
 </div>
 
-<section class="mi-cuenta-section">
-  <div class="mi-cuenta-inner">
-    <div class="cuenta-cta">
-      <h2>Tu <span>deuda consolidada</span>, en un solo lugar</h2>
-      <p>Ingresá con tu CUIT para ver el estado de todos tus tributos municipales: IRA, TPA, TISSH y tasas de habilitación. Pagá todo junto en un solo pago.</p>
-      <button class="btn-primary" onclick="document.getElementById('modal-login').classList.add('open')">Ingresar al portal</button>
-      <button class="btn-outline-white">Ver demo →</button>
-    </div>
-    <div class="cuenta-panel">
-      <div class="panel-header">
-        <div class="panel-contrib">
-          <strong>GARCÍA HERNÁNDEZ, Juan Carlos</strong>
-          <span>CUIT 20-28456789-3 · Contribuyente desde 2008</span>
-        </div>
-        <span class="badge-activo">● Activo</span>
-      </div>
-      <div class="deuda-grid">
-        <div class="deuda-item">
-          <p class="deuda-tipo">IRA – Automotor</p>
-          <p class="deuda-monto alerta">$87.450</p>
-          <p class="deuda-status vencido">⚠ 2° Cuota vencida</p>
-          <p style="font-size:10px;color:#7f98b6;margin-top:4px">Dominio: AB 234 EF</p>
-        </div>
-        <div class="deuda-item">
-          <p class="deuda-tipo">TPA – Inmobiliario</p>
-          <p class="deuda-monto">$42.300</p>
-          <p class="deuda-status pendiente">⏳ Vence 15 Jun</p>
-          <p style="font-size:10px;color:#7f98b6;margin-top:4px">Nomencl.: 01-03-012-0087</p>
-        </div>
-        <div class="deuda-item">
-          <p class="deuda-tipo">TISSH – Act. Econ.</p>
-          <p class="deuda-monto">$0</p>
-          <p class="deuda-status ok">✓ Al día</p>
-          <p style="font-size:10px;color:#7f98b6;margin-top:4px">Exp. N° 08765-DGR-26</p>
-        </div>
-      </div>
-      <p style="font-size:12px;color:#7f98b6;margin-bottom:0.75rem;text-align:right">Total a pagar: <strong style="color:#fff;font-size:15px">$129.750</strong></p>
-      <div class="panel-actions">
-        <button class="btn-pagar">💳 Pagar todo</button>
-        <button class="btn-ver">📋 Ver detalle</button>
-        <button class="btn-ver">📄 Libre de deuda</button>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- NOTICIAS + VENCIMIENTOS -->
 <div class="combo-grid">
   <div>
     <p class="section-title" style="margin-bottom:0.25rem">Novedades y comunicados</p>
@@ -443,14 +341,15 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
   </div>
 </div>
 
+<!-- TRÁMITES -->
 <div class="tramites-section">
   <div class="tramites-inner">
     <p class="section-title">Trámites disponibles</p>
     <p class="section-sub">Iniciá expedientes y obtené certificados sin concurrir a la DGR</p>
     <div class="tramites-grid">
       <div class="tramite-card"><div class="tramite-header"><div class="tramite-icon">📃</div><span class="tramite-tag digital">100% Digital</span></div><p class="tramite-title">Certificado de Libre Deuda</p><p class="tramite-desc">Emitido al instante con QR de validación para escribanías, AFIP y reparticiones públicas</p><div class="tramite-meta"><span class="tramite-plazo">⏱ Inmediato</span><span class="tramite-costo">💰 Sin cargo</span></div></div>
-      <div class="tramite-card"><div class="tramite-header"><div class="tramite-icon">🚗</div><span class="tramite-tag digital">100% Digital</span></div><p class="tramite-title">Denuncia de Venta de Automotor</p><p class="tramite-desc">Alta de la transferencia según Arts. 122-124 CTM y Decreto-Ley 6582/58. Exención de responsabilidad tributaria</p><div class="tramite-meta"><span class="tramite-plazo">⏱ 24-48 hs</span><span class="tramite-costo">💰 Sin cargo</span></div></div>
-      <div class="tramite-card"><div class="tramite-header"><div class="tramite-icon">📊</div><span class="tramite-tag digital">100% Digital</span></div><p class="tramite-title">DDJJ Anual TISSH</p><p class="tramite-desc">Declaración Jurada de Actividades Económicas con cálculo automático de la tasa sobre ingresos brutos</p><div class="tramite-meta"><span class="tramite-plazo">⏱ Mismo día</span><span class="tramite-costo">💰 Varía por categoría</span></div></div>
+      <div class="tramite-card"><div class="tramite-header"><div class="tramite-icon">🚗</div><span class="tramite-tag digital">100% Digital</span></div><p class="tramite-title">Denuncia de Venta de Automotor</p><p class="tramite-desc">Alta de la transferencia según Arts. 122-124 CTM y Decreto-Ley 6582/58</p><div class="tramite-meta"><span class="tramite-plazo">⏱ 24-48 hs</span><span class="tramite-costo">💰 Sin cargo</span></div></div>
+      <div class="tramite-card"><div class="tramite-header"><div class="tramite-icon">📊</div><span class="tramite-tag digital">100% Digital</span></div><p class="tramite-title">DDJJ Anual TISSH</p><p class="tramite-desc">Declaración Jurada de Actividades Económicas con cálculo automático de la tasa</p><div class="tramite-meta"><span class="tramite-plazo">⏱ Mismo día</span><span class="tramite-costo">💰 Varía por categoría</span></div></div>
       <div class="tramite-card"><div class="tramite-header"><div class="tramite-icon">🏪</div><span class="tramite-tag presencial">Semipresencial</span></div><p class="tramite-title">Nueva Habilitación Comercial</p><p class="tramite-desc">Inicio digital del expediente con carga de documentación. Inspección posterior requerida</p><div class="tramite-meta"><span class="tramite-plazo">⏱ 10-15 días</span><span class="tramite-costo">💰 Tasas según rubro</span></div></div>
       <div class="tramite-card"><div class="tramite-header"><div class="tramite-icon">📦</div><span class="tramite-tag digital">100% Digital</span></div><p class="tramite-title">Plan de Facilidades de Pago</p><p class="tramite-desc">Adhesión al plan de regularización de deuda con selección de cuotas. RG 018-2025</p><div class="tramite-meta"><span class="tramite-plazo">⏱ Mismo día</span><span class="tramite-costo">💰 Con actualización</span></div></div>
       <div class="tramite-card"><div class="tramite-header"><div class="tramite-icon">🔄</div><span class="tramite-tag digital">100% Digital</span></div><p class="tramite-title">Cese de Actividad Comercial</p><p class="tramite-desc">Baja del TISSH y cancelación del padrón de contribuyente. Régimen con retroactividad autorizada</p><div class="tramite-meta"><span class="tramite-plazo">⏱ 5 días hábiles</span><span class="tramite-costo">💰 Sin cargo</span></div></div>
@@ -458,6 +357,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
@@ -508,35 +408,27 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
   </div>
 </footer>
 
-<div class="chatbot-tooltip" id="chat-tip">¿Necesitás ayuda?</div>
 <button class="chatbot-bubble" title="Asistente virtual DGR">🤖</button>
 
 <script>
-const tabs=['ira','tpa','tissh','multa'];
-function switchTab(btn,id){
-  document.querySelectorAll('.btab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  tabs.forEach(t=>{
-    const el=document.getElementById('tab-'+t);
-    if(el)el.style.display=t===id?'block':'none';
-  });
-}
 function buscarCuit(){
   const v = document.getElementById('cuit-hero').value.trim();
-  if(!v){ alert('Ingresá tu CUIT para consultar'); return; }
-  alert('Consultando deuda para CUIT ' + v + '...\nIRA + TPA unificados.');
-}
-function buscarDeuda(){
-  const v=document.getElementById('buscar-ira').value.trim();
-  const hint=document.getElementById('search-result-hint');
-  if(!v){hint.innerHTML='<span style="color:#fc8181">⚠ Ingresá el dominio del vehículo para consultar</span>';return;}
-  hint.textContent='🔍 Consultando base de datos de la DGR...';
+  const result = document.getElementById('search-result');
+  if(!v){
+    result.innerHTML = '<span style="color:#fc8181">⚠ Ingresá tu CUIT para consultar</span>';
+    return;
+  }
+  result.innerHTML = '🔍 Consultando base de datos de la DGR...';
   setTimeout(()=>{
-    hint.innerHTML='✅ <strong style="color:#68d391">'+v.toUpperCase()+'</strong> — Deuda IRA 2026: <strong style="color:#fbd38d">$87.450</strong> (2° cuota vencida) · <a href="#" style="color:var(--dorado-claro)">Ir a pagar →</a>';
-  },1200);
+    result.innerHTML = '✅ <strong style="color:#68d391">' + v + '</strong> — IRA: <span style="color:#fbd38d">$87.450 (vencida)</span> · TPA: <span style="color:#fbd38d">$42.300 (vence 15 Jun)</span> · <a href="#" style="color:var(--dorado-claro)">Ir a pagar →</a>';
+  }, 1200);
 }
-setTimeout(()=>{const t=document.getElementById('chat-tip');if(t)t.style.display='none';},4000);
-document.getElementById('modal-login').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
+document.getElementById('cuit-hero').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') buscarCuit();
+});
+document.getElementById('modal-login').addEventListener('click', function(e){
+  if(e.target === this) this.classList.remove('open');
+});
 </script>
 </body>
 </html>
