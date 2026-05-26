@@ -360,7 +360,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
         <p class="sidebar-title" style="color:#fff;border-bottom-color:rgba(255,255,255,0.15)">📞 ¿Necesitás ayuda?</p>
         <p>Si encontrás errores en tu deuda o necesitás aclarar algún concepto, podés comunicarte con la DGR.</p>
         <button class="btn-contacto" onclick="alert('Demo: abriendo formulario de contacto...')">Contactar a la DGR</button>
-        <p style="font-size:11px;color:#7f98b6;margin-top:0.75rem;text-align:center">Av. España 655 · Lun. a Vie. 8:00–14:00 hs</p>
+        <p style="font-size:11px;color:#7f98b6;margin-top:0.75rem;text-align:center">25 de mayo 846 · Lun. a Vie. 8:00–14:00 hs</p>
       </div>
     </div>
 
