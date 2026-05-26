@@ -270,7 +270,12 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
       <p style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--dorado-claro);margin-bottom:0.75rem">Ciudad de Salta · Argentina</p>
       <h1 class="hero-title">Ventanilla Única<br><span>Tributaria Municipal</span></h1>
       <p class="hero-sub">Ingresá tu CUIT y consultá al instante tu deuda de automotor e inmobiliario, sin registrarte. y gestioná todos tus trámites ante la Dirección General de Rentas desde un único lugar, sin filas, sin demoras. y gestioná todos tus trámites ante la Dirección General de Rentas desde un único lugar, sin filas, sin demoras.</p>
-      <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+      Acceder con usuario →<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:520px">
+<div style="display:flex;gap:8px">
+<input class="search-input" type="text" placeholder="Ingresá tu CUIT: 20-12345678-9" id="cuit-hero" style="font-size:15px;padding:0.85rem 1.1rem">
+<button class="btn-buscar" style="padding:0 1.75rem;font-size:14px" onclick="buscarCuit()">Ver deuda →</button>
+</div>
+<p style="font-size:12px;color:rgba(255,255,255,0.4)">¿Tenés usuario? <a href="#" onclick="document.getElementById('modal-login').classList.add('open')" style="color:var(--dorado-claro)">Acceder al portal completo →</a></p>
         <button class="btn-primary" onclick="document.getElementById('modal-login').classList.add('open')">Ver mi deuda</button>
         <button class="btn-outline-white">Acceder con usuario →</button>
       </div>
@@ -515,6 +520,11 @@ function switchTab(btn,id){
     const el=document.getElementById('tab-'+t);
     if(el)el.style.display=t===id?'block':'none';
   });
+}
+function buscarCuit(){
+  const v = document.getElementById('cuit-hero').value.trim();
+  if(!v){ alert('Ingresá tu CUIT para consultar'); return; }
+  alert('Consultando deuda para CUIT ' + v + '...\nIRA + TPA unificados.');
 }
 function buscarDeuda(){
   const v=document.getElementById('buscar-ira').value.trim();
