@@ -82,14 +82,14 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--gris-bg);color:var(
 .tributo-col{padding:1.25rem;border-right:1px solid var(--gris-borde);background:var(--gris-card)}
 .tributo-col:last-child{border-right:none}
 .tributo-nombre{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gris-muted);margin-bottom:0.5rem}
-.tributo-monto{font-size:1.5rem;font-weight:700;color:var(--gris-texto);margin-bottom:0.3rem}
+.tributo-monto{font-size:2rem;font-weight:700;color:var(--gris-texto);margin-bottom:0.3rem}
 .tributo-monto.vencido{color:var(--rojo-alerta)}
 .tributo-monto.al-dia{color:var(--verde-ok)}
 .tributo-estado{font-size:12px;font-weight:600;margin-bottom:0.5rem}
 .tributo-estado.vencido{color:var(--rojo-alerta)}
 .tributo-estado.pendiente{color:#856404}
 .tributo-estado.ok{color:var(--verde-ok)}
-.tributo-detalle{font-size:11px;color:var(--gris-muted);line-height:1.5}
+.tributo-detalle{font-size:13px;color:var(--gris-muted);line-height:1.5}
 .tributo-accion{display:block;width:100%;margin-top:0.75rem;background:var(--azul-noche);color:#fff;border:none;border-radius:6px;padding:0.5rem;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all 0.2s}
 .tributo-accion:hover{background:var(--azul-medio)}
 .tributo-accion.secundario{background:none;border:1.5px solid var(--gris-borde);color:var(--gris-texto)}
